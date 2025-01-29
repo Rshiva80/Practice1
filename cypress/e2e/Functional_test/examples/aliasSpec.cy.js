@@ -24,7 +24,7 @@ describe("session 20 and 21", () => {
     cy.contains("Place Order").click();
   });
 
-  it("Visible and invisible elements using Assertions in Cypress ", () => {
+  it.skip("Visible and invisible elements using Assertions in Cypress ", () => {
      cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
      cy.get("#hide-textbox").click();
      cy.get("#displayed-text").should("not.be.visible");

@@ -3,17 +3,20 @@
 describe("Dymanic Dropdown",() =>{
 
     it("testcase1",() =>{
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-        cy.get("#autocomplete").type("Ind");
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+       // cy.get('#opentab').invoke("removeAttr","target");
+     
+        cy.get("#autocomplete").type("India");
+       
 
-        cy.get(".ui-menu-item div").each(($el,index,$list) =>{
+        cy.get(".ui-menu-item").each(($el,index,$list) =>{
+            if($el.text() === "India"){
+                cy.wrap($el).click();
+                 
+            }
+            cy.get('#autocomplete').should("have.value","India");
+        })
+        })
         
-            {
-                $el.text()==="India";
-                $el.click();
-               
-        }
-    })
-    })
 
-})
+        })
