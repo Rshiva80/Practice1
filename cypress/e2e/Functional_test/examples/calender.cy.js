@@ -10,6 +10,32 @@ describe("test Calender", () => {
 
     })
 
+    it.only("test2", () => {
+
+        const month = "5";
+        const day = "20";
+        const year = "2027";
+        const expectedDate = [month,day,year]; // ["5", "20", "2027"]
+
+        cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/offers");
+        cy.get(".react-date-picker__calendar-button").click();
+        cy.get(".react-calendar__navigation__label__labelText").click();
+        cy.get(".react-calendar__navigation__label__labelText").click();
+        cy.contains("button",year).click();
+        cy.get(".react-calendar__tile").eq(month-1).click();
+        cy.contains("abbr",day).click();
+
+        //Assertion
+        cy.get(".react-date-picker__inputGroup__input").each(($el,index)=>{
+            cy.log(cy.wrap($el).invoke("val"));
+            cy.wrap($el).invoke("val").should('eq',expectedDate[index]);
+//   The values are checked in order:
+// expectedDate[0] → Month (e.g., "5")
+// expectedDate[1] → Day (e.g., "20")
+// expectedDate[2] → Year (e.g., "2027")
+        })
+        
+    })
 })
 // describe("test Calendar", () => {
 //     it("test1", () => {
