@@ -2,79 +2,7 @@
 // Get the details
 //Make changes  or updates and then 
 // DElete the record
-
-
-// describe("Chaining API response",() => {
-//     const auth_user = "Bearer f3f10662988692f3b535c8eae551deee9a7257eb7a914e82d126aa685b193437";
-    
-//     it("Post Request",() =>{    
-
-//         cy.request({
-        
-//             method : "POST",
-//             url:"https://gorest.co.in/public/v2/users",
-//             body : 
-//             {
-                
-      
-//                     name: "Ajay16",
-//                     email: "Ajay16@example.com",
-//                     gender: "male",
-//                     status: "inactive"
-                
-//             },
-//             headers:
-//             {
-                    
-//                     Authorization: auth_user 
-//              } 
-           
-//         }).then((response) => {
-//             expect(response.body.status).to.eq(201);
-      
-//             const id = response.body.id;
-
-//             // Make updates 
-//             cy.request({
-//                 method : "PUT",
-//                 url:"https://gorest.co.in/public/v2/users?id={{id}}",
-//                 body : {
-//                    name : "Vijay"
-//                 },
-                
-//                 headers:
-//                 {
-//                     Authorization: auth_user 
-//                  } 
-               
-//             }).then((response) => {
-//                 expect(response.status).to.eq(200);
-//                 expect(response.body.name).to.eq("Vijay");
-
-//         })
-
-//     })
-
-//             // Validate the changes
-
-//             cy.request ({
-//                 method : "GET",
-//                 url:"https://gorest.co.in/public/v2/users?id={{id}}",
-                
-//                 headers:
-//                 {
-//                     Authorization: auth_user 
-//                  } 
-               
-//             }).then((response) => {
-//                 expect(response.body.status).to.eq(200);
-//                 expect(response.body.name).to.eq("Ajay16");
-
-//         })
-
-//     })
-// })
-
+ 
 describe("Chaining API response", () => {
     const auth_user = "Bearer f3f10662988692f3b535c8eae551deee9a7257eb7a914e82d126aa685b193437";
 
@@ -100,7 +28,7 @@ describe("Chaining API response", () => {
                 url: `https://gorest.co.in/public/v2/users/${userId}`,
                 headers: { Authorization: auth_user },
                 body: { name: "Vijay" }
-                
+
             }).then((updateResponse) => {
                 expect(updateResponse.status).to.eq(200);
                 expect(updateResponse.body.name).to.eq("Vijay");
