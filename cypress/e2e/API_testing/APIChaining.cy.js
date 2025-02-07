@@ -1,5 +1,7 @@
 describe("API chaining", ()=>{
+
     it("First test",() =>{
+        
         cy.request ({
             method:"GET",
             url:"https://jsonplaceholder.typicode.com/posts"

@@ -20,6 +20,32 @@
 
 
         });
+        
+
+
+
     })
 
+    it("test API",() =>{
+
+        const searchcity = "Chennai";
+
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+        cy.get("tr td:nth-child(2)").each(($el,index) => {
+
+            const name = $el.text();
+
+            if (name.includes("Postman"))
+            {
+
+               cy.wrap($el).next().should("have.text", searchcity);
+             
+
+            //cy.wrap($el): Converts the jQuery element ($el) into a Cypress object, enabling Cypress commands.
+        };
+        })
+        cy.get(".totalAmount").should("have.text"," Total Amount Collected: 296 ");
 })
+})
+ 
+ 

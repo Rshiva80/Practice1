@@ -32,5 +32,7 @@ describe("Basic Auth",() => {
             expect(response.status).to.eq(200);
             expect(response.body.authenticated).to.equal(true);
         })
-    });
+    })
+    //Bearer Token in bearer token.cy.js
+      
 })

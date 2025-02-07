@@ -44,9 +44,8 @@ describe("Post calls", () => {
         }) .then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body.Msg).to.eq("successfully added");
-           // expect(response.body.aisle).to.equal("228")
-          // expect(response.body.aisle).to.eq(requestBody.aisle.toString()); 
             expect(response).to.have.property('headers');
+            expect(response.body).to.have.property("aisle",requestBody.aisle);
         })
          
  
@@ -78,4 +77,32 @@ describe("Post calls", () => {
    
   });
 
+});
+describe("test API with fixture",() =>{
+
+    it("test API",() =>{
+
+        cy.fixture("albums.json").then((data) => {
+        
+    
+
+        cy.request ({
+            url : "https://jsonplaceholder.typicode.com/albums",
+            method : "POST",
+            body : data, 
+            
+        
+            headers :
+            {
+                "Content-Type" : "application/json; charset=utf-8"
+            }
+
+        }).then((response) =>{
+            expect(response.status).to.eq(201);
+            expect(response.body).to.have.property("title",data.title);
+           expect(response.body).to.have.property("userId",data.userId);
+            
+        })
+    })
+});
 });
