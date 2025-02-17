@@ -2,6 +2,7 @@ describe("Test Popups",() =>{
 
     it("test okpop up",() =>{
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+        cy.viewport('iphone-8');
         cy.get('[value="Alert"]').click();
         // OK 
         cy.on('window:alert',str =>{

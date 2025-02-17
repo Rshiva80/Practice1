@@ -26,6 +26,11 @@ cy.get("h4.card-title").each(($el,index,$list) => {
     })
 
  })
+
+
+ Cypress.Commands.add("search" ,(product) =>{
+     cy.get("#search-field").type(product);
+ })
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //

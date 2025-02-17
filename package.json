@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test1": "npx cypress run --spec \"cypress/e2e/Functional_test/examples/alerts.cy.js\" --browser chrome",
     "test": "echo \"Error: no test specified\" && exit 1",
     "testrun": "npx cypress run",
     "checkoutprocessrun": "npx cypress run --spec \"cypress/e2e/Functional_test/examples/customComm.cy.js\" --browser chrome"
@@ -11,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "ajv": "^8.17.1",
     "cypress": "^13.15.2"
   },

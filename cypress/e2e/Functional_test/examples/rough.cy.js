@@ -1,28 +1,19 @@
-describe("test API",() =>{
-
-    it("test API",() =>{
-
-        cy.fixture("albums.json").then((data) => {
-        
+describe("test dropdown",() =>{
     
+    it("test",() =>{
+        const searchCommodity = "Wheat";
 
-        cy.request ({
-            url : "https://jsonplaceholder.typicode.com/albums",
-            method : "POST",
-            body : data, 
-            
-        
-            headers :
-            {
-                "Content-Type" : "application/json; charset=utf-8"
+        cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/offers/");
+      
+        cy.get("tr td:nth-child(1)").each(($el,index,$list) =>{
+
+            if($el.text() == searchCommodity){
+            cy.get("tr td:nth-child(3)").eq(index).should("have.text","28");
+               
             }
-
-        }).then((response) =>{
-            expect(response.status).to.eq(201);
-            expect(response.body).to.have.property("title",data.title);
-           expect(response.body).to.have.property("userId",data.userId);
-            
         })
+
+
+      
     })
-});
-});
+})

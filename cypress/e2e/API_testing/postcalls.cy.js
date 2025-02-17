@@ -101,6 +101,7 @@ describe("test API with fixture",() =>{
             expect(response.status).to.eq(201);
             expect(response.body).to.have.property("title",data.title);
            expect(response.body).to.have.property("userId",data.userId);
+           expect(response.headers).to.have.property("content-type").and.include("application/json");
             
         })
     })

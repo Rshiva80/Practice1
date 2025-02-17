@@ -71,7 +71,13 @@ describe("test with custom commands", () => {
 
    
      
- 
+         describe("test with custom commands", () => {
+            it("test custom command",() => {
+                cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/offers");
+                cy.search("Tomato");
+
+            })
+        })
 
 
 
